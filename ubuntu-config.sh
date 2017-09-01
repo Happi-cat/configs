@@ -4,7 +4,7 @@
 apt-get update
 apt-get upgrade
 apt-get clean
-apt-get install --force-yes zsh curl firmware-b43-installer
+apt-get install --force-yes zsh curl firmware-b43-installer htop
 
 # certs
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg

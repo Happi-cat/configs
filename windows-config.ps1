@@ -18,7 +18,8 @@ $basicPackages = @(
     'skype', 
     'telegram',
     # browser
-    'GoogleChrome'
+    'GoogleChrome',
+    'f.lux'
 )
 
 $toolPackages = @(

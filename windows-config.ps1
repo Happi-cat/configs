@@ -46,6 +46,20 @@ function Install-PackageFromChoco {
     Install-Package $packages -ProviderName ChocolateyGet
 }
 
+function Install-VSCodeExtensions {
+    param([string[]]$extensions)
+    
+    $extensions | ForEach-Object {
+        & code --install-extension $_
+    }
+}
+
 Install-PackageFromChoco $basicPackages -Confirm:$false
 Install-PackageFromChoco $toolPackages -Confirm:$false
 Install-PackageFromChoco $devPackages -Confirm:$false
+
+Install-VSCodeExtensions (Get-Content .\vscode\base.list)
+Install-VSCodeExtensions (Get-Content .\vscode\win.list)
+
+$farConfigDest = Join-Path $env:APPDATA ".\Far Manager\Profile\"
+Copy-Item .\FarMenu.ini $farConfigDest
